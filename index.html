@@ -1,0 +1,32 @@
+<html>
+<head>
+<title> Ajax at work </title>
+</head>
+<body>
+<h1> Fetching Data with Ajax </h1>
+<form>
+<input type="button" value="Display Message" onclick="getData()">
+</form>
+<div id="myid">
+<p> The fetched data will go here. </p>
+</div>
+<script language="javascript">
+
+function getData()
+ {
+ 
+ var myObj = new XMLHttpRequest();
+ myObj.onreadystatechange = function()
+ {
+ 
+   if (myObj.readyState == 4 && myObj.status == 200)
+   {
+    document.getElementById("myid").innerHTML = myObj.responseText;
+	}
+  }
+   myObj.open("GET", "demo.txt",true);
+   myObj.send();
+ }
+ </script>
+ </body>
+ </html>
